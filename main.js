@@ -7,7 +7,7 @@ const botoes = document.querySelectorAll('.parametro-senha__botao');
 
 botoes[0].onclick = diminuiTamanho;
 botoes[1].onclick = aumentaTamanho;
-
+const forcaSenha = document.querySelector ('.forca')
 function diminuiTamanho() {
     if (tamanhoSenha > 1) {
         tamanhoSenha--;
@@ -60,4 +60,18 @@ function geraSenha() {
         senha = senha + alfabeto[numeroAleatorio];
     }
     campoSenha.value = senha;
+    classificaSenha ();
+}
+
+function classicaSenha(){
+    forcaSenha.classList.remove('fraca','media','forte');
+    if(tamanhoSenha >11){
+        forcaSenha.classList.add('forte');
+    }else if (tamanhoSenha > 5 && tamanhoSenha <=11){
+        forcaSenha.classList.add ('media');
+    }
+    else if (tamanhoSenha <=5 ){
+        forcaSenha.classList.add ('fraca');
+    }
+
 }
