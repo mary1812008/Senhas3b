@@ -23,35 +23,35 @@ function aumentaTamanho() {
     geraSenha();
 }
 const campoSenha = document.querySelector('#campo-senha');
-const checkbox = document.querySelectorAll('.checkbox')
+const checkbox = document.querySelectorAll('.checkbox');
 
 for(i = 0; i < checkbox.length; i++){
-    checkbox[i].onlick = geraSenha;
+    checkbox[i].onclick = geraSenha;
 }
 const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXWYZ';
-const letrasMinuscular = 'abcdefghijklmnopqrstuvwxyz';
+const letrasMinusculas = 'abcdefghijklmnopqrstuvwxyz';
 const numeros = '0123456789';
 const simbolos = '!@#$%*?';
 geraSenha();
 
 function geraSenha() {
     let alfabeto = '';
-    if (checkbox [0] . checkbox) {
+    if (checkbox [0] . checked) {
         alfabeto = alfabeto + letrasMaiusculas;
     }
 function geraSenha() {
     let alfabeto = '';
-    if (checkbox [1] . checkbox) {
+    if (checkbox [1] . checked) {
         alfabeto = alfabeto + letrasMinusculas;
     }
     function geraSenha() {
     let alfabeto = '';
-    if (checkbox [2] . checkbox) {
+    if (checkbox [2] . checked) {
         alfabeto = alfabeto + numeros;
     }
     function geraSenha() {
     let alfabeto = '';
-    if (checkbox [3] . checkbox) {
+    if (checkbox [3] . checked) {
         alfabeto = alfabeto + simbolos;
     }
 
