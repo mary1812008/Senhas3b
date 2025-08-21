@@ -9,7 +9,7 @@ const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const letrasMinusculas = 'abcdefghijklmnopqrstuvwxyz';
 const numeros = '0123456789';
 const simbolos = '!@%*?';
-const forcaSenha = document.querySelector ('.forca');
+const forcaSenha = document.querySelector('.forca');
 
 botoes[0].onclick = diminuiTamanho;
 botoes[1].onclick = aumentaTamanho;
@@ -37,7 +37,6 @@ for (i = 0; i < checkbox.length; i++) {
 geraSenha();
 
 function geraSenha() {
-
     let alfabeto = '';
     if (checkbox[0].checked) {
         alfabeto = alfabeto + letrasMaiusculas;
@@ -59,7 +58,7 @@ function geraSenha() {
         senha = senha + alfabeto[numeroAleatorio];
     }
     campoSenha.value = senha;
-    classificaSenha (alfabeto.length);
+    classificaSenha(alfabeto.length);
 }
 
 function classificaSenha(tamanhoAlfabeto){
@@ -68,12 +67,29 @@ function classificaSenha(tamanhoAlfabeto){
     if(entropia > 57){
         forcaSenha.classList.add('forte');
     }else if (entropia > 35 && entropia <= 57){
-        forcaSenha.classList.add ('media');
+        forcaSenha.classList.add('media');
     }
     else if (entropia <= 35 ){
-        forcaSenha.classList.add ('fraca');
+        forcaSenha.classList.add('fraca');
     }
     const valorEntropia = document.querySelector('.entropia');
     valorEntropia.textContent = "Um computaor pode levar até " 
     + Math.floor(2**entropia/(100e6*60*60*24)) + "dias para descobrir essa senha.";
 }
+
+/* --- NOVA PARTE: Copiar senha --- */
+const copyButton = document.querySelector("#copyButton");
+const feedback = document.querySelector("#feedback");
+
+copyButton.addEventListener("click", () => {
+    navigator.clipboard.writeText(campoSenha.value)
+        .then(() => {
+            feedback.classList.add("show");
+            setTimeout(() => {
+                feedback.classList.remove("show");
+            }, 2000);
+        })
+        .catch(err => {
+            console.error("Erro ao copiar: ", err);
+        });
+});
